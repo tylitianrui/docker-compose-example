@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.15.1
+    container_name: prometheus
+    env_file:
+      - ./env
+    ports:
+      - "9090:9090"
+    volumes:
+      - "./conf/prometheus.yml:/etc/prometheus/prometheus.yml"
