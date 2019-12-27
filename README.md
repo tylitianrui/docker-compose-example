@@ -14,3 +14,4 @@
 ## 2 docker-compose案例
 
 1. [prometheus](./prometheus)
+2. [nginx](./nginx)
