@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  swagger:
+    image: swaggerapi/swagger-editor
+    container_name: swagger-editor
+    env_file:
+      - ./env
+    ports:
+      - "8080:8080"
+
