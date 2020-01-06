@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  nginx:
+    image: redis
+    restart: always
+    container_name: redis
+    env_file:
+      - env
+    ports:
+      - "6379:6379"
+    command:
+      redis-server
+
