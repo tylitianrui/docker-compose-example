@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper:latest
+    restart: always
+    container_name: zookeeper-for-kafka
+    env_file:
+      - env
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: wurstmeister/kafka:latest
+    restart: always
+    container_name: kafka
+    env_file:
+        - env
+    ports:
+        - "9092:9092"
+    links:
+        - zookeeper
+
+
+
