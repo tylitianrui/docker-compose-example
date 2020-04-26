@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  etcd:
+    image: elcolio/etcd:latest
+    restart: always
+    container_name: etcd
+    env_file:
+      - env
+    ports:
+      - "2379:2379"
+      - "2380:2380"
+      - "4001:4001"
+      - "7001:7001"
+    volumes:
+    - "./data:/data"
+
+
+
+
+
+
