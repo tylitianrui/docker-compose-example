@@ -1,2 +1,18 @@
 */data
 */log
+#clickhouse runtime file
+clickhouse/data
+clickhouse/dictionaries_lib
+clickhouse/flags
+clickhouse/format_schemas
+clickhouse/logs
+clickhouse/metadata
+clickhouse/metadata_dropped
+clickhouse/preprocessed_configs
+clickhouse/status
+clickhouse/store
+clickhouse/tmp
+clickhouse/user_defined
+clickhouse/user_files
+clickhouse/user_scripts
+clickhouse/uuid
