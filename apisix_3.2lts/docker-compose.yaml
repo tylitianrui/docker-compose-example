@@ -1,0 +1,12 @@
+version: '3'
+services: 
+  apisix:
+    image: tylitianrui/apisix_3.2lts:v2
+    container_name: apisix_3.2lts
+    restart: always
+    volumes:
+      - ./docker_file/apisix/config-default.yaml:/usr/local/apisix/conf/config-default.yaml:ro
+      - ./logs:/usr/local/apisix/logs:rw
+    ports:
+      - "9080:9080/tcp"
+      - "9091:9091"
