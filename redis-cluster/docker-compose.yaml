@@ -1,0 +1,63 @@
+
+# 描述 Compose 文件的版本信息
+version: '3.1'
+
+# 定义服务，可以多个
+services:
+  redis-7001:
+    image: redis:6.2.13-alpine3.18
+    container_name: redis-7001
+    network_mode: "host"
+    volumes:
+      - ./redis-7001/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-7001/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+
+  redis-7002:
+    image: redis:6.2.13-alpine3.18
+    container_name: redis-7002
+    network_mode: "host"
+    volumes:
+      - ./redis-7002/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-7002/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+
+  redis-7003:
+    image: redis:6.2.13-alpine3.18
+    container_name: redis-7003
+    network_mode: "host"
+    volumes:
+      - ./redis-7003/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-7003/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+
+  redis-7004:
+    image: redis:6.2.13-alpine3.18
+    container_name: redis-7004
+    network_mode: "host"
+    volumes:
+      - ./redis-7004/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-7004/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+
+  redis-7005:
+    image: redis:6.2.13-alpine3.18
+    container_name: redis-7005
+    network_mode: "host"
+    volumes:
+      - ./redis-7005/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-7005/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+
+  redis-7006: # 服务名称
+    image: redis:6.2.13-alpine3.18 # 创建容器时所需的镜像
+    container_name: redis-7006 # 容器名称
+    restart: always # 容器总是重新启动
+    network_mode: "host" # host 网络模式
+    volumes: # 数据卷，目录挂载
+      - ./redis-7006/conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-7006/data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf # 覆盖容器启动后默认执行的命令
+
+
+# redis-cli -a 1234 --cluster create 192.168.1.9:7001 192.168.1.9:7002 192.168.1.9:7003 192.168.1.9:7004 192.168.1.9:7005  192.168.1.9:7006 --cluster-replicas 1

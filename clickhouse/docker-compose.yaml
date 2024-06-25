@@ -1,5 +1,4 @@
 version: '3'
- 
 services:
   clickhouse:
     image: yandex/clickhouse-server:21.3.20-alpine
@@ -8,12 +7,9 @@ services:
       - "8123:8123"
       - "9000:9000"
     volumes:
-      # 默认配置
-      # - ./conf/docker_related_config.xml:/etc/clickhouse-server/config.d/docker_related_config.xml:rw
-      # - ./conf/config.xml:/etc/clickhouse-server/config.xml:rw
-      # - ./conf/users.xml:/etc/clickhouse-server/users.xml:rw
       - /etc/localtime:/etc/localtime:ro
-      # #运行日志
-      # - ./logs:/var/log/clickhouse-server
-      # # 数据持久
-      # - ./data:/var/lib/clickhouse:rw
+      - ./config:/etc/clickhouse-server:rw
+      - ./log:/var/log/clickhouse-server
+      - ./data:/var/lib/clickhouse:rw
+
+

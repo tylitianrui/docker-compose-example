@@ -1,0 +1,15 @@
+version: "3.8"
+ 
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+      - ./logs:/var/log/mongodb
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: tyltr        ## 此处为设置MongoDB密码认证
+    #   MONGO_INITDB_ROOT_PASSWORD: 12345        ## 此处为设置MongoDB密码认证
