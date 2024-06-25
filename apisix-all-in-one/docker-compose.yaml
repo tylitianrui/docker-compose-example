@@ -22,12 +22,13 @@ services:
     image: bitnami/etcd:3.5.11
     restart: always
     volumes:
-      - etcd_data:/bitnami/etcd
+      - ./etcd/data:/opt/bitnami/etcd/data
     environment:
       ETCD_ENABLE_V2: "true"
       ALLOW_NONE_AUTHENTICATION: "yes"
       ETCD_ADVERTISE_CLIENT_URLS: "http://etcd:2379"
       ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
+      ETCD_DATA_DIR: "/opt/bitnami/etcd/data"
     ports:
       - "2379:2379/tcp"
     networks:
